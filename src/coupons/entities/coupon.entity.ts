@@ -5,7 +5,7 @@ export class Coupon {
   @PrimaryGeneratedColumn()
   id: Number;
 
-  @Column({ type: 'varchar', length: 30 })
+  @Column({ type: 'varchar', length:  30 })
   name: string;
 
   @Column({ type: 'int' })
