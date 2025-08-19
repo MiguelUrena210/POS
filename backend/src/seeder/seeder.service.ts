@@ -17,11 +17,13 @@ export class SeederService {
   ) {}
 
   async onModuleInit() {
+    console.log('Desde onModuleInit')
     const conection = this.dataSource;
     await conection.dropDatabase();  // elimina la base de datos
     await conection.synchronize(); // considerando las entidades y las relaciones definidas, crea nuevamente la base de datos
   }
   async seed() {
+    await this.onModuleInit()
     console.log('Desde seed en SeederService');
     await this.categoryRepository.save(categories);
 
