@@ -19,10 +19,13 @@ export class Product {
 
   @Column({ type: 'decimal' })
   price: number;
-  
+
   @Column({ type: 'int' })
   inventory: number;
 
-  @ManyToOne(() => Category/* , {eager: true} */) // eager: true (trae los datos relacionados)
+  @Column()
+  categoryId: number;
+
+  @ManyToOne(() => Category /* , {eager: true} */) // eager: true (trae los datos relacionados)
   category: Category;
 }
