@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { CategoriesService } from './categories.service';
 import { CreateCategoryDto } from './dto/create-category.dto';
@@ -30,9 +31,10 @@ export class CategoriesController {
   findOne(
     @Param('id', IdValidationPipe)
     id: string,
+    @Query('products') products?: boolean
   ) {
     // req.params (similar)
-    return this.categoriesService.findOne(+id); // el + lo convierte en un numero
+    return this.categoriesService.findOne(+id, products); // el + lo convierte en un numero
   }
 
   @Patch(':id')
