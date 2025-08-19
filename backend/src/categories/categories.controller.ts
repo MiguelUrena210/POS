@@ -31,7 +31,7 @@ export class CategoriesController {
   findOne(
     @Param('id', IdValidationPipe)
     id: string,
-    @Query('products') products?: boolean
+    @Query('products') products?: string
   ) {
     // req.params (similar)
     return this.categoriesService.findOne(+id, products); // el + lo convierte en un numero

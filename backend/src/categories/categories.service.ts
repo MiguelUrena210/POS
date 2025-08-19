@@ -27,14 +27,14 @@ export class CategoriesService {
     /* return this.categoryRepository.findBy({id: 2}); */ // Retornar las coincidencias
   }
 
-  async findOne(id: number, products?: boolean) {
+  async findOne(id: number, products?: string) {
     const options: FindManyOptions<Category> = {
       where: {
         id,
       },
     };
 
-    if (products === true) {
+    if (products === 'true') {
       options.relations = {
         products: true,
       };
